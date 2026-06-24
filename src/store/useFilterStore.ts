@@ -4,6 +4,7 @@ import type { PokemonFilters, PokemonOriginFilter, PokemonSortOption, PokemonTyp
 
 interface FilterStore {
   search: string;
+  searchVersion: number;
   selectedType: "all" | PokemonTypeName;
   selectedOrigin: PokemonOriginFilter;
   sortBy: PokemonSortOption;
@@ -22,6 +23,7 @@ interface FilterStore {
 
 const baseState = {
   search: "",
+  searchVersion: 0,
   selectedType: "all" as const,
   selectedOrigin: "all" as const,
   sortBy: "none" as const,
@@ -32,13 +34,13 @@ const baseState = {
 export const useFilterStore = create<FilterStore>((set, get) => ({
   ...baseState,
   setSearch: (search) => set({ search, currentPage: 1 }),
-  clearSearch: () => set({ search: "", currentPage: 1 }),
+  clearSearch: () => set((state) => ({ search: "", currentPage: 1, searchVersion: state.searchVersion + 1 })),
   setSelectedType: (selectedType) => set({ selectedType, currentPage: 1 }),
   setSelectedOrigin: (selectedOrigin) => set({ selectedOrigin, currentPage: 1 }),
   setSortBy: (sortBy) => set({ sortBy, currentPage: 1 }),
   setCurrentPage: (currentPage) => set({ currentPage }),
   resetFilters: () => set({ selectedType: "all", selectedOrigin: "all", sortBy: "none", currentPage: 1 }),
-  resetAllControls: () => set(baseState),
+  resetAllControls: () => set((state) => ({ ...baseState, searchVersion: state.searchVersion + 1 })),
   toFilters: () => ({
     search: get().search,
     selectedType: get().selectedType,

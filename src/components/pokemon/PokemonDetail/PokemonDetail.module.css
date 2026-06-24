@@ -10,6 +10,12 @@
   padding: 24px;
 }
 
+.createdCard {
+  border-color: var(--color-secondary);
+  background: var(--color-surface);
+  background: color-mix(in srgb, var(--color-secondary) 14%, var(--color-surface) 86%);
+}
+
 .media {
   display: grid;
   place-items: center;

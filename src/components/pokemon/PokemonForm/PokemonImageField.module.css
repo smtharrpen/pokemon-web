@@ -1,0 +1,55 @@
+.section {
+  display: grid;
+  gap: 16px;
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header h3,
+.header p,
+.divider,
+.note {
+  margin: 0;
+}
+
+.header p,
+.note {
+  color: var(--color-muted);
+}
+
+.fileInputWrapper {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}

@@ -32,15 +32,42 @@ export function getAvailableTypes(pokemons: Pokemon[]): PokemonTypeName[] {
   return [...types].sort((a, b) => a.localeCompare(b));
 }
 
-export function getVisiblePokemons(basePokemons: Pokemon[], createdPokemons: Pokemon[], filters: PokemonFilters): Pokemon[] {
-  const all = getAllPokemons(basePokemons, createdPokemons);
-  return getSortedPokemons(getFilteredPokemons(all, filters), filters.sortBy);
+function getVisiblePokemonsFromAll(allPokemons: Pokemon[], filters: PokemonFilters): Pokemon[] {
+  return getSortedPokemons(getFilteredPokemons(allPokemons, filters), filters.sortBy);
 }
 
-export function getVisiblePokemonPageCount(basePokemons: Pokemon[], createdPokemons: Pokemon[], filters: PokemonFilters, pageSize: number): number {
-  return getTotalPages(getVisiblePokemons(basePokemons, createdPokemons, filters).length, pageSize);
+export function getVisiblePokemons(allPokemons: Pokemon[], filters: PokemonFilters): Pokemon[];
+export function getVisiblePokemons(basePokemons: Pokemon[], createdPokemons: Pokemon[], filters: PokemonFilters): Pokemon[];
+export function getVisiblePokemons(...args: [Pokemon[], PokemonFilters] | [Pokemon[], Pokemon[], PokemonFilters]): Pokemon[] {
+  if (args.length === 2) {
+    const [allPokemons, filters] = args;
+    return getVisiblePokemonsFromAll(allPokemons, filters);
+  }
+
+  const [basePokemons, createdPokemons, filters] = args;
+  return getVisiblePokemonsFromAll(getAllPokemons(basePokemons, createdPokemons), filters);
 }
 
-export function getFilteredPokemonById(basePokemons: Pokemon[], createdPokemons: Pokemon[], id: string): Pokemon | undefined {
+export function getVisiblePokemonPageCount(allPokemons: Pokemon[], filters: PokemonFilters, pageSize: number): number;
+export function getVisiblePokemonPageCount(basePokemons: Pokemon[], createdPokemons: Pokemon[], filters: PokemonFilters, pageSize: number): number;
+export function getVisiblePokemonPageCount(...args: [Pokemon[], PokemonFilters, number] | [Pokemon[], Pokemon[], PokemonFilters, number]): number {
+  if (args.length === 3) {
+    const [allPokemons, filters, pageSize] = args;
+    return getTotalPages(getVisiblePokemonsFromAll(allPokemons, filters).length, pageSize);
+  }
+
+  const [basePokemons, createdPokemons, filters, pageSize] = args;
+  return getTotalPages(getVisiblePokemonsFromAll(getAllPokemons(basePokemons, createdPokemons), filters).length, pageSize);
+}
+
+export function getFilteredPokemonById(allPokemons: Pokemon[], id: string): Pokemon | undefined;
+export function getFilteredPokemonById(basePokemons: Pokemon[], createdPokemons: Pokemon[], id: string): Pokemon | undefined;
+export function getFilteredPokemonById(...args: [Pokemon[], string] | [Pokemon[], Pokemon[], string]): Pokemon | undefined {
+  if (args.length === 2) {
+    const [allPokemons, id] = args;
+    return getPokemonById(allPokemons, id);
+  }
+
+  const [basePokemons, createdPokemons, id] = args;
   return getPokemonById(getAllPokemons(basePokemons, createdPokemons), id);
 }

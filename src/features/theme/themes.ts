@@ -13,9 +13,9 @@ export const themes: ThemeDefinition[] = [
   {
     id: "berryLight",
     name: "Berry Light",
-    primaryColor: "#ca2557ff",
-    secondaryColor: "#e8e7dbff",
-    backgroundColor: "#e6e6e6",
+    primaryColor: "#35ca25ff",
+    secondaryColor: "#8a95d2ff",
+    backgroundColor: "#aaa7dbff",
     textColor: "#000000",
   },
   {

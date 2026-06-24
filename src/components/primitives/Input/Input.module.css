@@ -2,6 +2,7 @@
 .field {
   display: grid;
   gap: 8px;
+  min-width: 0;
 }
 
 .label {
@@ -10,12 +11,47 @@
 }
 
 .input {
+  width: 100%;
+  min-width: 0;
   min-height: 44px;
+  height: 52px;
   padding: 0 14px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-text);
+  box-sizing: border-box;
+}
+
+.input[type="file"] {
+  height: auto;
+  min-height: 52px;
+  padding: 10px 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input[type="file"]::file-selector-button {
+  margin-right: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-secondary);
+  color: var(--color-background);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.input[type="file"]::-webkit-file-upload-button {
+  margin-right: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-secondary);
+  color: var(--color-background);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .input::placeholder {

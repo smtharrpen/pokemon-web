@@ -1,4 +1,6 @@
 // Lista renderizada de pokemones con estados y paginación.
+"use client";
+
 import { EmptyState } from "@/components/primitives/EmptyState/EmptyState";
 import { ErrorState } from "@/components/primitives/ErrorState/ErrorState";
 import { LoadingState } from "@/components/primitives/LoadingState/LoadingState";
@@ -15,10 +17,11 @@ interface PokemonListProps {
   status: "idle" | "loading" | "success" | "error";
   error: string | null;
   onPageChange: (page: number) => void;
+  onPokemonSelect: (pokemon: Pokemon) => void;
   onReset?: () => void;
 }
 
-export function PokemonList({ pokemons, currentPage, totalPages, status, error, onPageChange, onReset }: PokemonListProps) {
+export function PokemonList({ pokemons, currentPage, totalPages, status, error, onPageChange, onPokemonSelect, onReset }: PokemonListProps) {
   if (status === "loading") return <LoadingState />;
   if (status === "error") return <ErrorState description={error ?? "No se pudieron cargar los pokemones."} title="Hubo un problema" onAction={onReset} actionLabel="Reintentar" />;
   if (pokemons.length === 0) {
@@ -28,7 +31,7 @@ export function PokemonList({ pokemons, currentPage, totalPages, status, error, 
   return (
     <div className={styles.wrapper}>
       <div className={styles.grid}>
-        {pokemons.map((pokemon) => <PokemonCard key={pokemon.id} pokemon={pokemon} />)}
+        {pokemons.map((pokemon) => <PokemonCard key={pokemon.id} onSelect={onPokemonSelect} pokemon={pokemon} />)}
       </div>
       <Pagination currentPage={currentPage} onPageChange={onPageChange} totalPages={totalPages} />
     </div>

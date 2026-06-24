@@ -20,6 +20,11 @@
   color: var(--color-text);
 }
 
+.accent {
+  background: var(--color-secondary);
+  color: var(--color-background);
+}
+
 .success {
   background: color-mix(in srgb, var(--color-success) 20%, transparent);
   color: var(--color-text);

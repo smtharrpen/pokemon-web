@@ -1,0 +1,43 @@
+.section {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  min-width: 0;
+  width: 100%;
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .section {
+    grid-column: 1 / -1;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header h3,
+.error {
+  margin: 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.selected {
+  border-color: var(--color-secondary);
+}
+
+.error {
+  color: var(--color-danger);
+}

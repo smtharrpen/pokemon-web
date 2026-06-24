@@ -13,7 +13,7 @@ export function PokemonStats({ pokemon }: PokemonStatsProps) {
       <StatBar label="Vida" value={pokemon.hp} />
       <StatBar label="Ataque" value={pokemon.attack} />
       <StatBar label="Defensa" value={pokemon.defense} />
-      <StatBar label="Velocidad" value={pokemon.speed ?? 0} />
+      <StatBar label="Velocidad" value={pokemon.speed} />
     </section>
   );
 }

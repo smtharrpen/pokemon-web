@@ -1,21 +1,28 @@
 /* Card principal de exploración de pokemones. */
-.link {
-  display: block;
-  height: 100%;
-}
-
 .card {
   display: grid;
   gap: 16px;
   height: 100%;
   padding: 16px;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
-.link:hover .card,
-.link:focus-visible .card {
+.createdCard {
+  border-color: var(--color-secondary);
+  background: var(--color-surface);
+  background: color-mix(in srgb, var(--color-secondary) 14%, var(--color-surface) 86%);
+}
+
+.card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 4px;
 }
 
 .image {

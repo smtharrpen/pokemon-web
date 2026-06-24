@@ -6,47 +6,38 @@
 
 .grid {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
 }
 
-.typesSection,
-.preview {
-  display: grid;
-  gap: 16px;
-  padding: 16px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
+.grid > * {
+  min-width: 0;
 }
 
-.typesHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.typesHeader h3,
-.preview h3,
-.preview p,
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.success,
 .error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
   margin: 0;
 }
 
-.previewImage {
-  width: 100%;
-  max-width: 180px;
-  object-fit: contain;
-}
-
-.typesGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.selectedType {
-  border-color: var(--color-secondary);
+.success {
+  color: var(--color-success);
 }
 
 .error {

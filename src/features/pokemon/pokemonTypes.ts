@@ -1,5 +1,6 @@
 // Define los tipos de dominio para pokemones, filtros y formularios.
 export type PokemonOrigin = "api" | "created";
+export type PokemonImageSource = "url" | "file";
 
 export type PokemonTypeName =
   | "normal"
@@ -28,11 +29,15 @@ export interface Pokemon {
   hp: number;
   attack: number;
   defense: number;
-  speed?: number;
-  height?: number;
-  weight?: number;
+  speed: number;
+  height: number;
+  weight: number;
   types: PokemonTypeName[];
   origin: PokemonOrigin;
+  imageSource?: PokemonImageSource;
+  imageWidth?: number;
+  imageHeight?: number;
+  createdAt?: string;
 }
 
 export type PokemonOriginFilter = "all" | PokemonOrigin;

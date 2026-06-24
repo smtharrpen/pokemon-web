@@ -29,16 +29,16 @@
 }
 
 html[data-theme="berryLight"] {
-  --color-primary: #ca2557ff;
-  --color-secondary: #e8e7dbff;
-  --color-background: #e6e6e6;
-  --color-text: #000000;
-  --color-surface: #faf7f7;
-  --color-surface-strong: #ffffff;
-  --color-border: #cfc7c8;
-  --color-muted: #5b5456;
-  --color-danger: #b82049;
-  --color-success: #227a54;
+  --color-primary: rgb(68, 88, 204);
+  --color-secondary: rgb(82, 133, 64);
+  --color-background: #272822;
+  --color-text: #f8f8f2;
+  --color-surface: #372e41;
+  --color-surface-strong: #493e53;
+  --color-border: #5c5460;
+  --color-muted: #a4a3c5;
+  --color-danger: #2067b8;
+  --color-success: #287a22;
 }
 
 html[data-theme="classicBattle"] {
