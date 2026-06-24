@@ -2,10 +2,22 @@
 .wrapper {
   display: grid;
   gap: 24px;
+  min-width: 0;
 }
 
 .grid {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    gap: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

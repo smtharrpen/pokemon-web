@@ -53,3 +53,14 @@
   height: 1px;
   background: var(--color-border);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-md);
+    gap: 12px;
+  }
+
+  .header {
+    gap: 8px;
+  }
+}

@@ -20,6 +20,18 @@
   outline: none;
 }
 
+@media (max-width: 480px) {
+  .overlay {
+    padding: var(--space-sm);
+  }
+
+  .modal {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    max-height: calc(100dvh - var(--space-lg));
+  }
+}
+
 @media (max-width: 640px) {
   .overlay {
     padding: var(--space-md);

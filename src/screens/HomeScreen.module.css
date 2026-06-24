@@ -4,3 +4,10 @@
   gap: 24px;
   padding: 32px 0 48px;
 }
+
+@media (max-width: 640px) {
+  .home {
+    gap: 16px;
+    padding: 24px 0 32px;
+  }
+}

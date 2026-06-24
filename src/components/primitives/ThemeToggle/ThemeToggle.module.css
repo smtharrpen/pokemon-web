@@ -3,8 +3,20 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  width: 100%;
+}
+
+.toggle > * {
+  flex: 1 1 160px;
+  min-width: 0;
 }
 
 .active {
   border-color: var(--color-secondary);
+}
+
+@media (max-width: 480px) {
+  .toggle > * {
+    flex-basis: 100%;
+  }
 }

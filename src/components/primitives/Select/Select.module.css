@@ -2,6 +2,7 @@
 .field {
   display: grid;
   gap: 8px;
+  min-width: 0;
 }
 
 .label {
@@ -10,6 +11,8 @@
 }
 
 .select {
+  width: 100%;
+  min-width: 0;
   min-height: 44px;
   padding: 0 14px;
   border: 1px solid var(--color-border);

@@ -62,3 +62,14 @@
 .error {
   color: var(--color-danger);
 }
+
+@media (max-width: 640px) {
+  .preview {
+    padding: 12px;
+  }
+
+  .media {
+    min-height: 140px;
+    padding: var(--space-md);
+  }
+}

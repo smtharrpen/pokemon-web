@@ -69,3 +69,22 @@
   color: var(--color-muted);
   font-size: var(--font-size-sm);
 }
+
+@media (max-width: 640px) {
+  .card {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .topline {
+    align-items: flex-start;
+  }
+
+  .meta {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    width: min(100%, 280px);
+  }
+}

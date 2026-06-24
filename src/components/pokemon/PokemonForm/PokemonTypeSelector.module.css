@@ -34,6 +34,17 @@
   gap: 8px;
 }
 
+@media (max-width: 640px) {
+  .section {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .grid {
+    gap: 6px;
+  }
+}
+
 .selected {
   border-color: var(--color-secondary);
 }

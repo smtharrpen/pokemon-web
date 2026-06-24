@@ -2,3 +2,9 @@
 .create {
   padding: 32px 0 48px;
 }
+
+@media (max-width: 640px) {
+  .create {
+    padding: 24px 0 32px;
+  }
+}

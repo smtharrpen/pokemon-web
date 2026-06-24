@@ -1,13 +1,40 @@
 /* Filtros combinables con layout adaptable. */
 .filters {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+}
+
+.filters > * {
+  min-width: 0;
 }
 
 .actions {
+  grid-column: 1 / -1;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   align-items: end;
+}
+
+.actions > * {
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .actions > * {
+    flex-basis: 100%;
+  }
 }

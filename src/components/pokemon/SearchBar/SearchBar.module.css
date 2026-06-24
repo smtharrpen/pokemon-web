@@ -2,11 +2,23 @@
 .search {
   display: grid;
   gap: 8px;
-  min-width: min(100%, 320px);
+  width: 100%;
+  min-width: 0;
 }
 
 .actions {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.actions > * {
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .actions > * {
+    flex-basis: 100%;
+  }
 }
